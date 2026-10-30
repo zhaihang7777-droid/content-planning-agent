@@ -1,0 +1,26 @@
+{
+  "description": "合成模拟值；不代表真实服务价格或延迟。总费用包含检索、生成和保存。",
+  "tools": {
+    "search_materials": {
+      "cost": 1,
+      "duration_seconds": 10
+    },
+    "generate_script_standard": {
+      "cost": 10,
+      "duration_seconds": 60
+    },
+    "generate_script_economy": {
+      "cost": 6,
+      "duration_seconds": 30
+    },
+    "estimate_plan": {
+      "cost": 0,
+      "duration_seconds": 0
+    },
+    "save_plan": {
+      "cost": 1,
+      "duration_seconds": 5
+    }
+  },
+  "failure_cost_default": 0
+}

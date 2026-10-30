@@ -1,0 +1,299 @@
+{
+  "provider": "offline_mock",
+  "clock": "2026-01-01T00:00:00+00:00",
+  "input": {
+    "request_id": "save_failure",
+    "theme": "字幕",
+    "budget": 20,
+    "deadline": "2026-01-02T00:00:00+00:00"
+  },
+  "fail_once": "save_plan",
+  "outputs": [
+    {
+      "request_id": "save_failure",
+      "status": "incomplete",
+      "reason": "Tool failed; successful results retained",
+      "task_plan": [
+        {
+          "id": "search",
+          "depends_on": [],
+          "purpose": "检索活动素材"
+        },
+        {
+          "id": "estimate",
+          "depends_on": [
+            "search"
+          ],
+          "purpose": "估算预算和耗时"
+        },
+        {
+          "id": "script",
+          "depends_on": [
+            "search",
+            "estimate"
+          ],
+          "purpose": "生成内容脚本"
+        },
+        {
+          "id": "save",
+          "depends_on": [
+            "script"
+          ],
+          "purpose": "保存活动方案"
+        }
+      ],
+      "saved_plan": null,
+      "summary": {
+        "theme": "字幕",
+        "deadline": "2026-01-02T00:00:00+00:00",
+        "budget": 20,
+        "estimated_total_cost": 12,
+        "gaps": [
+          "Tool failed; successful results retained"
+        ]
+      },
+      "decision_provider": "offline_mock",
+      "spent_cost": 11,
+      "simulated_elapsed_seconds": 70,
+      "steps": {
+        "1": {
+          "status": "succeeded",
+          "result": {
+            "ok": true,
+            "data": {
+              "materials": [
+                {
+                  "id": "M01",
+                  "theme": "字幕创作",
+                  "facts": [
+                    "产品支持添加字幕",
+                    "字幕文本可以编辑"
+                  ],
+                  "source": "合成产品说明"
+                },
+                {
+                  "id": "M02",
+                  "theme": "字幕创作",
+                  "facts": [
+                    "示例演示包含导入片段、编辑字幕、预览三个步骤"
+                  ],
+                  "source": "合成演示素材"
+                }
+              ]
+            },
+            "error": null,
+            "cost": 1,
+            "duration_seconds": 10,
+            "reused": false
+          }
+        },
+        "2": {
+          "status": "succeeded",
+          "result": {
+            "ok": true,
+            "data": {
+              "remaining_cost": 11,
+              "total_cost": 12,
+              "remaining_duration_seconds": 65
+            },
+            "error": null,
+            "cost": 0,
+            "duration_seconds": 0,
+            "reused": false
+          }
+        },
+        "3": {
+          "status": "succeeded",
+          "result": {
+            "ok": true,
+            "data": {
+              "mode": "standard",
+              "scenes": [
+                {
+                  "source_id": "M01",
+                  "text": "产品支持添加字幕"
+                },
+                {
+                  "source_id": "M01",
+                  "text": "字幕文本可以编辑"
+                },
+                {
+                  "source_id": "M02",
+                  "text": "示例演示包含导入片段、编辑字幕、预览三个步骤"
+                }
+              ],
+              "synthetic": true
+            },
+            "error": null,
+            "cost": 10,
+            "duration_seconds": 60,
+            "reused": false
+          }
+        },
+        "4": {
+          "status": "failed",
+          "result": {
+            "ok": false,
+            "data": {},
+            "error": "injected_failure:save_plan",
+            "cost": 0,
+            "duration_seconds": 0,
+            "reused": false
+          }
+        }
+      },
+      "trace": [
+        {
+          "step": "1",
+          "decision": {
+            "action": "search_materials",
+            "arguments": {
+              "query": "字幕"
+            },
+            "reason": "Find supporting material"
+          },
+          "observation": {
+            "ok": true,
+            "data": {
+              "materials": [
+                {
+                  "id": "M01",
+                  "theme": "字幕创作",
+                  "facts": [
+                    "产品支持添加字幕",
+                    "字幕文本可以编辑"
+                  ],
+                  "source": "合成产品说明"
+                },
+                {
+                  "id": "M02",
+                  "theme": "字幕创作",
+                  "facts": [
+                    "示例演示包含导入片段、编辑字幕、预览三个步骤"
+                  ],
+                  "source": "合成演示素材"
+                }
+              ]
+            },
+            "error": null,
+            "cost": 1,
+            "duration_seconds": 10,
+            "reused": false
+          }
+        },
+        {
+          "step": "2",
+          "decision": {
+            "action": "estimate_plan",
+            "arguments": {
+              "operations": [
+                "generate_script_standard",
+                "save_plan"
+              ],
+              "spent_cost": 1
+            },
+            "reason": "Estimate before generation"
+          },
+          "observation": {
+            "ok": true,
+            "data": {
+              "remaining_cost": 11,
+              "total_cost": 12,
+              "remaining_duration_seconds": 65
+            },
+            "error": null,
+            "cost": 0,
+            "duration_seconds": 0,
+            "reused": false
+          }
+        },
+        {
+          "step": "3",
+          "decision": {
+            "action": "generate_script",
+            "arguments": {
+              "material_ids": [
+                "M01",
+                "M02"
+              ],
+              "mode": "standard"
+            },
+            "reason": "Generate affordable option"
+          },
+          "observation": {
+            "ok": true,
+            "data": {
+              "mode": "standard",
+              "scenes": [
+                {
+                  "source_id": "M01",
+                  "text": "产品支持添加字幕"
+                },
+                {
+                  "source_id": "M01",
+                  "text": "字幕文本可以编辑"
+                },
+                {
+                  "source_id": "M02",
+                  "text": "示例演示包含导入片段、编辑字幕、预览三个步骤"
+                }
+              ],
+              "synthetic": true
+            },
+            "error": null,
+            "cost": 10,
+            "duration_seconds": 60,
+            "reused": false
+          }
+        },
+        {
+          "step": "4",
+          "decision": {
+            "action": "save_plan",
+            "arguments": {
+              "request_id": "save_failure",
+              "plan": {
+                "mode": "standard",
+                "scenes": [
+                  {
+                    "source_id": "M01",
+                    "text": "产品支持添加字幕"
+                  },
+                  {
+                    "source_id": "M01",
+                    "text": "字幕文本可以编辑"
+                  },
+                  {
+                    "source_id": "M02",
+                    "text": "示例演示包含导入片段、编辑字幕、预览三个步骤"
+                  }
+                ],
+                "synthetic": true
+              }
+            },
+            "reason": "Save successful script"
+          },
+          "observation": {
+            "ok": false,
+            "data": {},
+            "error": "injected_failure:save_plan",
+            "cost": 0,
+            "duration_seconds": 0,
+            "reused": false
+          }
+        },
+        {
+          "decision": {
+            "action": "finish",
+            "arguments": {
+              "status": "incomplete",
+              "reason": "Tool failed; successful results retained"
+            },
+            "reason": "Tool failed; successful results retained"
+          }
+        }
+      ]
+    }
+  ],
+  "saved_plan_count": 0
+}

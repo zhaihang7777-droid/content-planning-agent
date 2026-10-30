@@ -1,0 +1,26 @@
+[
+  {
+    "case": "normal",
+    "status": "completed",
+    "spent_cost": 12,
+    "passed": true
+  },
+  {
+    "case": "budget",
+    "status": "completed",
+    "spent_cost": 8,
+    "passed": true
+  },
+  {
+    "case": "failure",
+    "status": "completed",
+    "spent_cost": 8,
+    "passed": true
+  },
+  {
+    "case": "time_short",
+    "status": "completed",
+    "spent_cost": 8,
+    "passed": true
+  }
+]

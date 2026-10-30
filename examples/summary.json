@@ -1,0 +1,68 @@
+[
+  {
+    "case": "normal",
+    "expected": "completed",
+    "actual": "completed",
+    "passed": true
+  },
+  {
+    "case": "over_budget",
+    "expected": "completed",
+    "actual": "completed",
+    "passed": true
+  },
+  {
+    "case": "no_feasible_plan",
+    "expected": "incomplete",
+    "actual": "incomplete",
+    "passed": true
+  },
+  {
+    "case": "missing_budget",
+    "expected": "needs_input",
+    "actual": "needs_input",
+    "passed": true
+  },
+  {
+    "case": "missing_deadline",
+    "expected": "needs_input",
+    "actual": "needs_input",
+    "passed": true
+  },
+  {
+    "case": "tool_failure",
+    "expected": "incomplete",
+    "actual": "incomplete",
+    "passed": true
+  },
+  {
+    "case": "save_failure",
+    "expected": "incomplete",
+    "actual": "incomplete",
+    "passed": true
+  },
+  {
+    "case": "deadline",
+    "expected": "incomplete",
+    "actual": "incomplete",
+    "passed": true
+  },
+  {
+    "case": "call_limit",
+    "expected": "incomplete",
+    "actual": "incomplete",
+    "passed": true
+  },
+  {
+    "case": "duplicate",
+    "expected": "completed",
+    "actual": "completed",
+    "passed": true
+  },
+  {
+    "case": "resume",
+    "expected": "completed",
+    "actual": "completed",
+    "passed": true
+  }
+]

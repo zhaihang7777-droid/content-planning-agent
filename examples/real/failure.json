@@ -1,0 +1,62 @@
+{
+  "input": {
+    "request_id": "real-failure",
+    "theme": "字幕",
+    "budget": 20,
+    "deadline": "2030-01-01T00:00:00+00:00"
+  },
+  "fail_once": [
+    "generate_script_standard"
+  ],
+  "clock": "2026-10-30T01:30:52.774811+00:00",
+  "model": "gemini-2.5-flash",
+  "output": {
+    "request_id": "real-failure",
+    "status": "incomplete",
+    "reason": "Decision or execution error: timeout",
+    "task_plan": [
+      {
+        "id": "search",
+        "depends_on": [],
+        "purpose": "检索活动素材"
+      },
+      {
+        "id": "estimate",
+        "depends_on": [
+          "search"
+        ],
+        "purpose": "估算预算和耗时"
+      },
+      {
+        "id": "script",
+        "depends_on": [
+          "search",
+          "estimate"
+        ],
+        "purpose": "生成内容脚本"
+      },
+      {
+        "id": "save",
+        "depends_on": [
+          "script"
+        ],
+        "purpose": "保存活动方案"
+      }
+    ],
+    "saved_plan": null,
+    "summary": {
+      "theme": "字幕",
+      "deadline": "2030-01-01T00:00:00+00:00",
+      "budget": 20,
+      "estimated_total_cost": null,
+      "gaps": [
+        "Decision or execution error: timeout"
+      ]
+    },
+    "decision_provider": "gemini_gateway",
+    "spent_cost": 0,
+    "simulated_elapsed_seconds": 0,
+    "steps": {},
+    "trace": []
+  }
+}

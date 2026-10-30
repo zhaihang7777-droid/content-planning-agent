@@ -1,0 +1,438 @@
+{
+  "input": {
+    "request_id": "real-time_short",
+    "theme": "字幕",
+    "budget": 20,
+    "deadline": "2026-10-30T01:46:13.227595+00:00"
+  },
+  "fail_once": [],
+  "clock": "2026-10-30T01:45:23.227595+00:00",
+  "model": "deepseek-flash",
+  "output": {
+    "request_id": "real-time_short",
+    "status": "completed",
+    "reason": "Economy script generated from materials M01/M02 and saved successfully as plan 8cf8149c17ce9fd3; total cost 8 is within the 20 budget and no further operations are needed.",
+    "task_plan": [
+      {
+        "id": "search",
+        "depends_on": [],
+        "purpose": "检索活动素材"
+      },
+      {
+        "id": "estimate",
+        "depends_on": [
+          "search"
+        ],
+        "purpose": "估算预算和耗时"
+      },
+      {
+        "id": "script",
+        "depends_on": [
+          "search",
+          "estimate"
+        ],
+        "purpose": "生成内容脚本"
+      },
+      {
+        "id": "save",
+        "depends_on": [
+          "script"
+        ],
+        "purpose": "保存活动方案"
+      }
+    ],
+    "saved_plan": {
+      "plan_id": "8cf8149c17ce9fd3",
+      "plan": {
+        "theme": "字幕",
+        "objective": "制作并交付主题内容活动方案",
+        "deadline": "2026-10-30T01:46:13.227595+00:00",
+        "budget": 20,
+        "content": {
+          "mode": "economy",
+          "scenes": [
+            {
+              "source_id": "M01",
+              "text": "产品支持添加字幕"
+            },
+            {
+              "source_id": "M01",
+              "text": "字幕文本可以编辑"
+            },
+            {
+              "source_id": "M02",
+              "text": "示例演示包含导入片段、编辑字幕、预览三个步骤"
+            }
+          ],
+          "synthetic": true
+        },
+        "source_ids": [
+          "M01",
+          "M02"
+        ],
+        "delivery": "可编辑脚本及素材清单；不执行发布",
+        "cost_total": 8,
+        "simulated_duration_seconds": 45,
+        "steps": [
+          {
+            "id": "search_materials",
+            "status": "succeeded"
+          },
+          {
+            "id": "estimate_plan",
+            "status": "succeeded"
+          },
+          {
+            "id": "generate_script",
+            "status": "succeeded"
+          }
+        ],
+        "gaps": []
+      }
+    },
+    "summary": {
+      "theme": "字幕",
+      "deadline": "2026-10-30T01:46:13.227595+00:00",
+      "budget": 20,
+      "estimated_total_cost": 8,
+      "gaps": []
+    },
+    "decision_provider": "deepseek_api",
+    "spent_cost": 8,
+    "simulated_elapsed_seconds": 45,
+    "steps": {
+      "1": {
+        "status": "succeeded",
+        "result": {
+          "ok": true,
+          "data": {
+            "materials": [
+              {
+                "id": "M01",
+                "theme": "字幕创作",
+                "facts": [
+                  "产品支持添加字幕",
+                  "字幕文本可以编辑"
+                ],
+                "source": "合成产品说明"
+              },
+              {
+                "id": "M02",
+                "theme": "字幕创作",
+                "facts": [
+                  "示例演示包含导入片段、编辑字幕、预览三个步骤"
+                ],
+                "source": "合成演示素材"
+              }
+            ]
+          },
+          "error": null,
+          "cost": 1,
+          "duration_seconds": 10,
+          "reused": false
+        }
+      },
+      "2": {
+        "status": "succeeded",
+        "result": {
+          "ok": true,
+          "data": {
+            "remaining_cost": 7,
+            "total_cost": 8,
+            "remaining_duration_seconds": 35
+          },
+          "error": null,
+          "cost": 0,
+          "duration_seconds": 0,
+          "reused": false
+        }
+      },
+      "3": {
+        "status": "succeeded",
+        "result": {
+          "ok": true,
+          "data": {
+            "mode": "economy",
+            "scenes": [
+              {
+                "source_id": "M01",
+                "text": "产品支持添加字幕"
+              },
+              {
+                "source_id": "M01",
+                "text": "字幕文本可以编辑"
+              },
+              {
+                "source_id": "M02",
+                "text": "示例演示包含导入片段、编辑字幕、预览三个步骤"
+              }
+            ],
+            "synthetic": true
+          },
+          "error": null,
+          "cost": 6,
+          "duration_seconds": 30,
+          "reused": false
+        }
+      },
+      "4": {
+        "status": "succeeded",
+        "result": {
+          "ok": true,
+          "data": {
+            "plan_id": "8cf8149c17ce9fd3",
+            "plan": {
+              "theme": "字幕",
+              "objective": "制作并交付主题内容活动方案",
+              "deadline": "2026-10-30T01:46:13.227595+00:00",
+              "budget": 20,
+              "content": {
+                "mode": "economy",
+                "scenes": [
+                  {
+                    "source_id": "M01",
+                    "text": "产品支持添加字幕"
+                  },
+                  {
+                    "source_id": "M01",
+                    "text": "字幕文本可以编辑"
+                  },
+                  {
+                    "source_id": "M02",
+                    "text": "示例演示包含导入片段、编辑字幕、预览三个步骤"
+                  }
+                ],
+                "synthetic": true
+              },
+              "source_ids": [
+                "M01",
+                "M02"
+              ],
+              "delivery": "可编辑脚本及素材清单；不执行发布",
+              "cost_total": 8,
+              "simulated_duration_seconds": 45,
+              "steps": [
+                {
+                  "id": "search_materials",
+                  "status": "succeeded"
+                },
+                {
+                  "id": "estimate_plan",
+                  "status": "succeeded"
+                },
+                {
+                  "id": "generate_script",
+                  "status": "succeeded"
+                }
+              ],
+              "gaps": []
+            }
+          },
+          "error": null,
+          "cost": 1,
+          "duration_seconds": 5,
+          "reused": false
+        }
+      }
+    },
+    "trace": [
+      {
+        "step": "1",
+        "decision": {
+          "action": "search_materials",
+          "arguments": {
+            "query": "字幕"
+          },
+          "reason": "Search materials first as required; time and budget allow a search before selecting a script mode."
+        },
+        "observation": {
+          "ok": true,
+          "data": {
+            "materials": [
+              {
+                "id": "M01",
+                "theme": "字幕创作",
+                "facts": [
+                  "产品支持添加字幕",
+                  "字幕文本可以编辑"
+                ],
+                "source": "合成产品说明"
+              },
+              {
+                "id": "M02",
+                "theme": "字幕创作",
+                "facts": [
+                  "示例演示包含导入片段、编辑字幕、预览三个步骤"
+                ],
+                "source": "合成演示素材"
+              }
+            ]
+          },
+          "error": null,
+          "cost": 1,
+          "duration_seconds": 10,
+          "reused": false
+        }
+      },
+      {
+        "step": "2",
+        "decision": {
+          "action": "estimate_plan",
+          "arguments": {
+            "operations": [
+              "generate_script_economy",
+              "save_plan"
+            ],
+            "spent_cost": 1
+          },
+          "reason": "Standard generation (60s) cannot fit remaining 40s; estimate economy plus save fits time and budget."
+        },
+        "observation": {
+          "ok": true,
+          "data": {
+            "remaining_cost": 7,
+            "total_cost": 8,
+            "remaining_duration_seconds": 35
+          },
+          "error": null,
+          "cost": 0,
+          "duration_seconds": 0,
+          "reused": false
+        }
+      },
+      {
+        "step": "3",
+        "decision": {
+          "action": "generate_script",
+          "arguments": {
+            "material_ids": [
+              "M01",
+              "M02"
+            ],
+            "mode": "economy"
+          },
+          "reason": "The economy script plus save fits within both the remaining budget and the time limit, so proceed with the feasible estimated plan."
+        },
+        "observation": {
+          "ok": true,
+          "data": {
+            "mode": "economy",
+            "scenes": [
+              {
+                "source_id": "M01",
+                "text": "产品支持添加字幕"
+              },
+              {
+                "source_id": "M01",
+                "text": "字幕文本可以编辑"
+              },
+              {
+                "source_id": "M02",
+                "text": "示例演示包含导入片段、编辑字幕、预览三个步骤"
+              }
+            ],
+            "synthetic": true
+          },
+          "error": null,
+          "cost": 6,
+          "duration_seconds": 30,
+          "reused": false
+        }
+      },
+      {
+        "step": "4",
+        "decision": {
+          "action": "save_plan",
+          "arguments": {
+            "request_id": "real-time_short",
+            "plan": {
+              "mode": "economy",
+              "scenes": [
+                {
+                  "source_id": "M01",
+                  "text": "产品支持添加字幕"
+                },
+                {
+                  "source_id": "M01",
+                  "text": "字幕文本可以编辑"
+                },
+                {
+                  "source_id": "M02",
+                  "text": "示例演示包含导入片段、编辑字幕、预览三个步骤"
+                }
+              ],
+              "synthetic": true
+            }
+          },
+          "reason": "Economy script was generated successfully and fits the remaining time; saving preserves the result."
+        },
+        "observation": {
+          "ok": true,
+          "data": {
+            "plan_id": "8cf8149c17ce9fd3",
+            "plan": {
+              "theme": "字幕",
+              "objective": "制作并交付主题内容活动方案",
+              "deadline": "2026-10-30T01:46:13.227595+00:00",
+              "budget": 20,
+              "content": {
+                "mode": "economy",
+                "scenes": [
+                  {
+                    "source_id": "M01",
+                    "text": "产品支持添加字幕"
+                  },
+                  {
+                    "source_id": "M01",
+                    "text": "字幕文本可以编辑"
+                  },
+                  {
+                    "source_id": "M02",
+                    "text": "示例演示包含导入片段、编辑字幕、预览三个步骤"
+                  }
+                ],
+                "synthetic": true
+              },
+              "source_ids": [
+                "M01",
+                "M02"
+              ],
+              "delivery": "可编辑脚本及素材清单；不执行发布",
+              "cost_total": 8,
+              "simulated_duration_seconds": 45,
+              "steps": [
+                {
+                  "id": "search_materials",
+                  "status": "succeeded"
+                },
+                {
+                  "id": "estimate_plan",
+                  "status": "succeeded"
+                },
+                {
+                  "id": "generate_script",
+                  "status": "succeeded"
+                }
+              ],
+              "gaps": []
+            }
+          },
+          "error": null,
+          "cost": 1,
+          "duration_seconds": 5,
+          "reused": false
+        }
+      },
+      {
+        "decision": {
+          "action": "finish",
+          "arguments": {
+            "status": "completed",
+            "reason": "Economy script generated from materials M01/M02 and saved successfully as plan 8cf8149c17ce9fd3; total cost 8 is within the 20 budget and no further operations are needed."
+          },
+          "reason": "All required steps succeeded and the plan is saved, so the campaign plan is complete."
+        }
+      }
+    ]
+  }
+}

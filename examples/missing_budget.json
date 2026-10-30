@@ -1,0 +1,22 @@
+{
+  "provider": "offline_mock",
+  "clock": "2026-01-01T00:00:00+00:00",
+  "input": {
+    "request_id": "missing_budget",
+    "theme": "字幕",
+    "budget": null,
+    "deadline": "2026-01-02T00:00:00+00:00"
+  },
+  "fail_once": null,
+  "outputs": [
+    {
+      "request_id": "missing_budget",
+      "status": "needs_input",
+      "missing_or_invalid": [
+        "budget"
+      ],
+      "reason": "Correct required inputs"
+    }
+  ],
+  "saved_plan_count": 0
+}

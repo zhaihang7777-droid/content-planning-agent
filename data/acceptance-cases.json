@@ -1,0 +1,68 @@
+[
+  {
+    "id": "normal",
+    "setup": "预算20且时间充足",
+    "expected": "完成并保存",
+    "evidence_status": "planned_not_run"
+  },
+  {
+    "id": "missing_budget",
+    "setup": "未提供预算",
+    "expected": "needs_input，指出预算",
+    "evidence_status": "planned_not_run"
+  },
+  {
+    "id": "missing_deadline",
+    "setup": "未提供截止时间",
+    "expected": "needs_input，指出截止时间",
+    "evidence_status": "planned_not_run"
+  },
+  {
+    "id": "over_budget",
+    "setup": "预算10，初始方案12，替代方案8",
+    "expected": "观察估算后改选、重估并保存",
+    "evidence_status": "planned_not_run"
+  },
+  {
+    "id": "no_feasible_plan",
+    "setup": "预算2",
+    "expected": "incomplete，说明费用缺口",
+    "evidence_status": "planned_not_run"
+  },
+  {
+    "id": "tool_failure",
+    "setup": "脚本生成工具注入失败",
+    "expected": "失败如实记录，模型调整或停止，保留素材检索结果",
+    "evidence_status": "planned_not_run"
+  },
+  {
+    "id": "duplicate",
+    "setup": "相同请求连续执行",
+    "expected": "不重复计费或保存",
+    "evidence_status": "planned_not_run"
+  },
+  {
+    "id": "deadline",
+    "setup": "剩余时间不足",
+    "expected": "incomplete，说明时间缺口",
+    "evidence_status": "planned_not_run"
+  },
+  {
+    "id": "save_failure",
+    "setup": "保存工具注入失败",
+    "expected": "不得 completed 或虚报已保存",
+    "evidence_status": "planned_not_run"
+  },
+  {
+    "id": "call_limit",
+    "setup": "工具调用达到上限",
+    "expected": "incomplete，保留成功步骤",
+    "evidence_status": "planned_not_run"
+  },
+  {
+    "id": "resume",
+    "setup": "失败后恢复同一请求",
+    "expected": "加分：复用成功步骤，只续跑未完成步骤",
+    "evidence_status": "planned_not_run"
+  }
+]

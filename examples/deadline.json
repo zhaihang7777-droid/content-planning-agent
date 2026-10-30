@@ -1,0 +1,104 @@
+{
+  "provider": "offline_mock",
+  "clock": "2026-01-01T00:00:00+00:00",
+  "input": {
+    "request_id": "deadline",
+    "theme": "字幕",
+    "budget": 20,
+    "deadline": "2025-12-31T00:00:00+00:00"
+  },
+  "fail_once": null,
+  "outputs": [
+    {
+      "request_id": "deadline",
+      "status": "incomplete",
+      "reason": "Tool failed; successful results retained",
+      "task_plan": [
+        {
+          "id": "search",
+          "depends_on": [],
+          "purpose": "检索活动素材"
+        },
+        {
+          "id": "estimate",
+          "depends_on": [
+            "search"
+          ],
+          "purpose": "估算预算和耗时"
+        },
+        {
+          "id": "script",
+          "depends_on": [
+            "search",
+            "estimate"
+          ],
+          "purpose": "生成内容脚本"
+        },
+        {
+          "id": "save",
+          "depends_on": [
+            "script"
+          ],
+          "purpose": "保存活动方案"
+        }
+      ],
+      "saved_plan": null,
+      "summary": {
+        "theme": "字幕",
+        "deadline": "2025-12-31T00:00:00+00:00",
+        "budget": 20,
+        "estimated_total_cost": null,
+        "gaps": [
+          "Tool failed; successful results retained"
+        ]
+      },
+      "decision_provider": "offline_mock",
+      "spent_cost": 0,
+      "simulated_elapsed_seconds": 0,
+      "steps": {
+        "1": {
+          "status": "failed",
+          "result": {
+            "ok": false,
+            "data": {},
+            "error": "deadline_exceeded",
+            "cost": 0,
+            "duration_seconds": 0,
+            "reused": false
+          }
+        }
+      },
+      "trace": [
+        {
+          "step": "1",
+          "decision": {
+            "action": "search_materials",
+            "arguments": {
+              "query": "字幕"
+            },
+            "reason": "Find supporting material"
+          },
+          "observation": {
+            "ok": false,
+            "data": {},
+            "error": "deadline_exceeded",
+            "cost": 0,
+            "duration_seconds": 0,
+            "reused": false
+          }
+        },
+        {
+          "decision": {
+            "action": "finish",
+            "arguments": {
+              "status": "incomplete",
+              "reason": "Tool failed; successful results retained"
+            },
+            "reason": "Tool failed; successful results retained"
+          }
+        }
+      ]
+    }
+  ],
+  "saved_plan_count": 0
+}
